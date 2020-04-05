@@ -1,0 +1,59 @@
+spring:
+  #引入开发环境,在logback-spring.xml中不同环境，记录不同日志级别信息
+  profiles:
+    active: dev
+
+  #配置数据源
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test
+    username: root
+    password: 123456
+
+  #配置jap持久化
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: true
+
+  #thymeleaf　view层模板相关配置
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+#配置tomcat服务器
+server:
+  port: 8089
+  #解析view模板配置，接口项目可以忽略
+  error:
+    whitelabel:
+      enabled: false
+
+#日志配置, path和file不能同时使用，如果要同时使用则logging.file生效，logging.path失效
+logging:
+  pattern:
+    #console: "%d - %msg%n"
+  #file: lxf.log
+  path: /var/log/spring
+  file: /var/log/spring/lxf.log
+  #level:
+   # com.example.readinglist: info
+
+#配置自定义日志变量信息，在logback-spring.xml中引用
+logback:
+  logdir: /home/lxf/test/logs
+  appname: lxf-spring-log-test.log
+
+#开启调试
+#debug: true
+
+#自定义属性
+lxf-customer:
+  username: liangxifeng-test
+
+#关于actuator站点访问401错误的解决方案
+management:
+  security:
+    enabled: false

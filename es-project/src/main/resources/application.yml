@@ -1,0 +1,103 @@
+#jpa config
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/xunwu
+    username: common
+    password: common
+  #发送email相关
+  mail:
+    host: smtp.qq.com
+    username: 786285076@qq.com
+    #注意该密码是邮箱中开启smtp后的授权码,并非以上邮箱账号秘密
+    password: abcefdf
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+
+#kafka
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: xunwu
+
+#redis配置
+  redis:
+    #Redis数据库索引（默认为0）
+    database: 0
+    #Redis服务器地址
+    host: localhost
+    #Redis服务器连接端口
+    port: 6379
+    #Redis服务器连接密码（默认为空）
+    password: 123456
+    pool:
+      min-idle: 1
+    timeout: 3000
+#thymeleaf 模式使用html
+  thymeleaf:
+    mode: HTML
+#静态资源访问路径配置
+  resources:
+    static-locations: classpath:/
+
+#静态资源不需要热加载
+#  devtools:
+#    restart:
+#      additional-exclude: templates/**,static/**
+
+  jpa:
+    #打印sql
+    show-sql: true
+    hibernate:
+      #hibernate启动的时候支对sql做格式验证
+      ddl-auto: validate
+
+#session会话存储方式类型
+  session:
+    store-type: hash_map
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+
+##内置tomcat配置
+server:
+  port: 8090
+#禁用spring boot 的异常页面 <<Whitelabel Error Page>>
+  error:
+    whitelabel:
+      enabled: true
+
+
+#关闭http基本验证
+security:
+  basic:
+    enabled: true
+
+#qiniu
+qiniu:
+  AccessKey: uHJBmWL1EU9bFaQBkQWrGRMZJFNxDTEetvRfQaDR
+  SecretKey: C9enDqhNa47X00W92PrBfGgRSruz0_wOeqpp6-CU
+  Bucket:  liangxifeng-2
+  cdn.prefix: http://pqpr6rk2f.bkt.clouddn.com
+
+#配置aliyun短信相关
+aliyun:
+  sms:
+    accessKey: aliyunkey-new
+    accessKeySecret: aliyunvalue-new
+    template:
+      code: SMS_142150652-new
+
+
+

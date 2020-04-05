@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+        <!-- 基于配置文件的方式配置AOP -->
+        
+        <!-- 配置计算器实现类bean -->
+        <bean id="cal"  class="lxf.spring.aop.xmlconfig.CalculatorImpl"></bean>
+        <!-- 配置日志切面bean -->        
+        <bean id="logAspect" class="lxf.spring.aop.xmlconfig.LogAspect"></bean>
+        <!-- 配置验证切面bean -->
+        <bean id="validateAspect" class="lxf.spring.aop.xmlconfig.ValidateAspect"></bean>
+        
+        <!-- 配置AOP -->
+        <aop:config>
+            <!-- 配置切点表达式 -->
+            <aop:pointcut expression="execution(public int lxf.spring.aop.xmlconfig.CalculatorInterface.*(..))"  id="pointcut" />
+            <!-- 配置日志切面通知 -->
+            <aop:aspect ref="logAspect" order="2">
+                <!-- 前置通知 -->
+                <aop:before method="myBefore" pointcut-ref="pointcut"/>
+                <!-- 后置通知 -->
+                <aop:after method="myAfter" pointcut-ref="pointcut"/>
+                <!-- 返回通知 -->
+                <aop:after-returning method="myReturn" pointcut-ref="pointcut" returning="result"/>
+                <!-- 异常通知 -->
+                <aop:after-throwing  method="myThrow" pointcut-ref="pointcut" throwing="ex"/>
+            </aop:aspect>
+            <!-- 配置验证切面通知 -->
+            <aop:aspect ref="validateAspect" order="1">
+                <aop:before method="myBefore" pointcut-ref="pointcut"/>
+            </aop:aspect>
+        </aop:config>
+</beans>

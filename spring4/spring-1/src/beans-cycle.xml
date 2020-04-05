@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- 学习Spring Bean的生命周期 -->
+
+    <!-- 
+        bean的init-method属性调用对应类中的自定义方法myInit方法，在IOC容器创建的时候执行
+        bean的destroy-method属性调用对应类中的自定义方法myDestroy，在IOC容器关闭的时候执行
+     -->
+    <bean id="car" class="com.lxf.spring.cycle.Car" 
+            init-method="myInit" 
+            destroy-method="myDestroy">
+        <property name="brand" value="Audi"></property>
+    </bean>
+    
+    <!-- 配置bean的后置处理器:　不需要配置id,　IOC容器自动识别 -->
+    <!-- 
+        实现BeanPostProcessor接口，并具体实现
+        postProcessBeforeInitialization(Object bean, String beanName)：init-method之前被调用
+        postProcessAfterInitialization(Object bean, String beanName) ：init-method之后被调用
+        
+        以上两个方法参数：
+        bean:　bean实例本身
+        beanName: IOC容器配置的bean的id
+        
+        以上两个方法返回值：
+        实际上返回给用户的那个Bean,注意：可以在以上两个方法中修改返回的Bean,甚至返回一个新Bean
+     -->   
+    <bean class="com.lxf.spring.cycle.MyBeanPostProcessor"></bean>
+
+</beans>

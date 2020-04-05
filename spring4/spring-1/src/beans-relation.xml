@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- 学习spring Bean配置之间继承和依赖配置文件 -->
+
+    <!-- 属性abstract=true代表设置该bean为模板(不能被容器实例化)，如果为模板则不需要配置 -->
+    <bean id="address1" class="com.lxf.spring.autowire.Address"  p:city="Beijing" p:street="wudaokou" abstract="true"></bean>
+    <!-- 使用parent属性继承其他bean配置 -->
+    <bean id="address2"  p:street="dazhongsi"  parent="address1"></bean>
+    
+    <bean id="car" class="com.lxf.spring.autowire.Car"></bean>
+    <!-- 使用depends-on属性设定Bean前置依赖的Bean，必须提前配置car的bean -->
+    <bean id="person" class="com.lxf.spring.autowire.Person"  p:name="zs"  depends-on="car" p:car-ref="car"></bean>
+</beans>

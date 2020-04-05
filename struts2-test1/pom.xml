@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>struts2</groupId>
+  <artifactId>struts2-test1</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>struts2-test1 Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+     <!-- 开发环境部署所用 -->
+  <properties>
+      <warPackageName>struts2-test1</warPackageName>
+      <tomcat.deploy.server>localTestServer</tomcat.deploy.server>
+      <tomcat.deploy.serverUrl>http://localhost:8081/manager/text</tomcat.deploy.serverUrl>
+  </properties>
+  
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- Struts2 依赖 -->  
+    <dependency>  
+        <groupId>org.apache.struts</groupId>  
+        <artifactId>struts2-core</artifactId>  
+        <version>2.3.1</version>  
+    </dependency>  
+    
+    
+  </dependencies>
+  <build>
+    <finalName>struts2-test1</finalName>
+    <plugins>  
+	    <plugin>  
+	               <!-- 编译时指定jdk1.7进行编译 -->
+	                <artifactId>maven-compiler-plugin</artifactId>  
+	                <version>3.5.1</version>  
+	                <configuration>  
+	                    <source>1.7</source>  
+	                    <target>1.7</target>  
+	                </configuration>  
+	       </plugin>  
+	       <!-- 部署相关 -->
+	       <plugin>
+	         <groupId>org.apache.tomcat.maven</groupId>
+             <artifactId>tomcat7-maven-plugin</artifactId>
+             <version>2.2</version>
+              <configuration>  
+                  <url>${tomcat.deploy.serverUrl}</url>  
+                  <server>${tomcat.deploy.server}</server>  
+                  <path>/${warPackageName}</path>
+              </configuration>  
+       </plugin>  
+       </plugins>
+  </build>
+</project>

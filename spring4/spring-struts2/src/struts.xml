@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts> 
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>    
+    <!-- 使用感叹号方式配置多个method -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+    <!-- 打开开发模式 -->
+    <constant name="struts.devMode" value="true"></constant>
+    <package name="default" namespace="/"  extends="struts-default">
+            <!-- 这里的class需要配置为spring配置中对应action bean的id -->
+           <action name="person-save" class="personAction">
+            <result>/success.jsp</result>
+           </action>
+    </package>
+</struts>   

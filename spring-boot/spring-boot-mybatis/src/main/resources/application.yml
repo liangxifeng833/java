@@ -1,0 +1,23 @@
+spring:
+  #引入开发环境,在logback-spring.xml中不同环境，记录不同日志级别信息
+  profiles:
+    #引用pom中自定义的属性
+    active: @profiles.active@
+
+## 数据源配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+
+## Mybatis 配置
+mybatis:
+  typeAliasesPackage: domain.domain
+  mapperLocations: classpath:mapper/*.xml
+  configuration:
+    #配置通常数据库字段用下划线分隔；而java属性一般遵循驼峰命名相对应
+    map-underscore-to-camel-case: true
+
+#日志配置, path和file不能同时使用，如果要同时使用则logging.file生效，logging.path失效
+logging:
+  pattern:
+  path: /var/log/spring-boot
+  file: /var/log/spring-boot/zhaoshang-exhibition.log

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <!-- 后台管理配置文件，判断用户登录 -->
+<struts>
+    <package name="default5" namespace="/manager" extends="struts-default">
+        <!-- 注册拦截器 -->
+        <interceptors>
+            <interceptor name="auth" class="com.lxf.timerintercepter.AuthIntercepter"></interceptor>
+            <!-- 自定义拦截器栈myStack，组合了defaultStack和auth -->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+                <interceptor-ref name="auth"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        
+        <!-- 通过Action访问后台管理页面，需要判断用户是否已登录，如果未登录则跳转到登录页 -->
+        <action name="auth">
+            <result>/WEB-INF/page/manager.jsp</result>
+            <result name="login">/loginNew.jsp</result>
+            <!-- 引用自定义拦截器栈 -->
+            <interceptor-ref name="myStack"></interceptor-ref>
+        </action>
+        
+        <!-- 登录action -->
+        <action name="loginNew" class="com.lxf.action.LoginNewAction" method="loginNew">
+            <result>/WEB-INF/page/manager.jsp</result>
+            <result name="error">/loginNew.jsp</result>
+        </action>
+    </package>
+</struts>   

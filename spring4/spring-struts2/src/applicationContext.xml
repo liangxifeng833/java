@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+    
+    <bean id="person" class="lxf.spring.struts.beans.Person">
+        <property name="username"  value="lisi"></property>
+    </bean> 
+    <bean id="personService" class="lxf.spring.struts.service.PersonService"></bean>
+    <!-- structs2的action是多例，而spring的bean是单例的，所以需要配置scope＝prototype将其配置为多例 -->
+    <bean id="personAction" class="lxf.spring.struts.actions.PersonAction" scope="prototype">
+        <property name="personService"  ref="personService"></property>
+    </bean>
+</beans>

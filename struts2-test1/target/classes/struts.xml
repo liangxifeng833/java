@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- 使用include标签引入各个模块xml配置文件 -->
+    <include file="helloworld.xml"></include>
+    <include file="helloworld2.xml"></include>
+    <!-- 引入测试action执行时间xml的配置文件 -->
+     <include file="timer.xml"></include>
+    <!-- 引入后台管理配置文件，判断用户登录xml -->
+     <include file="manager.xml"></include>
+    
+    
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    
+    <!-- 使用感叹号方式配置多个method -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+    <!-- 配置action后缀 -->
+    <constant name="struts.action.extension" value="html,action,do"></constant>
+    <!-- 打开开发模式 -->
+    <constant name="struts.devMode" value="true"></constant>
+</struts>   

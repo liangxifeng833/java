@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-7-24 14:02:01 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="lxf.spring.hibernate.entiries.Acount" table="ACOUNT">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="user_name" type="java.lang.String">
+            <column name="USER_NAME" />
+        </property>
+        <property name="balance" type="double">
+            <column name="BALANCE" />
+        </property>
+    </class>
+</hibernate-mapping>

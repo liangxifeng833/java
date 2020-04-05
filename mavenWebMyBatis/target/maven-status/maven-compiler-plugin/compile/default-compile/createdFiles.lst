@@ -1,0 +1,5 @@
+com/mybatis/bean/Message.class
+com/lxf/demo/TestServlet.class
+com/mybatis/db/DBAccess.class
+com/mybatis/dao/MessageDao.class
+com/lxf/demo/HelloWorld.class

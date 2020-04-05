@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-1 11:36:50 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="entity.Grade" table="grade">
+        <!--  主键 -->
+        <id name="gid" type="java.lang.Integer" >
+            <column name="gid" />
+            <generator class="increment" />
+        </id>
+        <property name="gname" type="java.lang.String">
+            <column name="gname" />
+        </property>
+        <property name="gdesc" type="java.lang.String">
+            <column name="gdesc" />
+        </property>
+                <property name="score" type="java.lang.Integer">
+            <column name="score" />
+        </property>
+        <!-- 配置单向的一对多关联关系, inverse=ture代表由多方维护关联关系，一方不需要进行维护 
+              cascade="save-update"代表当进行保存和更新时，级联操作所关联的对象-->
+        <set name="student2" table="student2"  inverse="true" lazy="true" cascade="save-update">
+            <!-- 指定关联的外键列 -->
+            <key>
+                <column name="gid" />
+            </key>
+            <!-- 指定一对多中的Student2实体类 -->
+            <one-to-many class="entity.Student2" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+		<!-- 
+		  指定Spring IOC容器的扫描包,IOC容器在启动的时候，
+		  会扫表base-package指定的当前包以及子包下所有包含指定注解的bean，并将其实例
+		  可通过resource-pattern="repository/*.class"指定扫描资源
+		
+        <context:component-scan 
+                base-package="com.spring.beans.annotation"
+                resource-pattern="repository/*.class">
+         </context:component-scan> -->
+        
+       <!-- 排除指定注解下的目标类 
+       <context:component-scan 
+                base-package="com.spring.beans.annotation" >
+                <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+         </context:component-scan>--> 
+         
+       <!-- 包含指定注解下的目标类 context:include-filter要和use-default-filters属性配合使用（默认扫描所有相关注解）
+       <context:component-scan 
+                base-package="com.spring.beans.annotation" use-default-filters="false" >
+                <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+         </context:component-scan>--> 
+         
+        <!-- 排除指定类bean的加载 
+       <context:component-scan 
+                base-package="com.spring.beans.annotation" >
+                <context:exclude-filter type="assignable" expression="com.spring.beans.annotation.repository.UserRepositoryImpl"/>
+         </context:component-scan>--> 
+         
+       <!-- 包含指定类bean的加载 context:include-filter需要和use-default-filter属性配合使用 
+       <context:component-scan 
+                base-package="com.spring.beans.annotation"  use-default-filters="false">
+                <context:include-filter type="assignable" expression="com.spring.beans.annotation.repository.UserRepositoryImpl"/>
+         </context:component-scan>-->
+         
+        <context:component-scan 
+                base-package="com.spring.beans.annotation"  >
+         </context:component-scan>
+</beans>

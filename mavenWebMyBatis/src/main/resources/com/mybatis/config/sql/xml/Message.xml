@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+       Copyright 2009-2016 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.dao.IMessage">
+
+  <resultMap type="com.mybatis.bean.Message" id="MessageResult">
+    <id column="id" jdbcType="INTEGER" property="id"/>
+    <result column="command" jdbcType="VARCHAR" property="command"/>
+    <result column="desc" jdbcType="VARCHAR" property="desc"/>
+    <result column="content" jdbcType="VARCHAR" property="content"/>
+  </resultMap>
+
+  <!--根据条件查询 -->
+  <select id="queryList" parameterType="com.mybatis.bean.Message" resultMap="MessageResult" >
+    SELECT <include refid="colums" />
+    FROM message
+    <where>
+	    <if test="command !=null and !&quot;&quot;.equals(command.trim())" > 
+	       and command = #{command}
+	      </if>
+	    <if test="desc !=null and !&quot;&quot;.equals(desc.trim())" > 
+	       and desc like '%' #{desc} '%'
+	      </if>
+    </where>
+  </select>
+  
+  
+  <!-- 根据条件查询记录总数 --> 
+ <select id="queryCount"  parameterType="com.mybatis.bean.Message" resultType="int" >
+    SELECT count(*) FROM message
+        <where>
+        <if test="command !=null and !&quot;&quot;.equals(command.trim())" > 
+           and command = #{command}
+          </if>
+        <if test="desc !=null and !&quot;&quot;.equals(desc.trim())" > 
+           and desc like '%' #{desc} '%'
+          </if>
+    </where>
+ </select>
+ 
+ <sql id="colums">command,`desc`,content</sql>
+ 
+   <!--根据条件查询,带分页功能 -->
+  <select id="queryListWithPage" parameterType="java.util.Map" resultMap="MessageResult" >
+    SELECT <include refid="colums" />
+    FROM message
+    <where>
+        <if test="command !=null and !&quot;&quot;.equals(command.trim())" > 
+           and command = #{message.command}
+          </if>
+        <if test="desc !=null and !&quot;&quot;.equals(desc.trim())" > 
+           and desc like '%' #{message.desc} '%'
+          </if>
+    </where>
+    Limit #{page.dbIndex}, #{page.dbNumber}
+  </select>
+  
+    <!--根据条件查询, 使用拦截器实现分页 -->
+  <select id="queryListWithPageByInterceptor" parameterType="com.mybatis.bean.Message" resultMap="MessageResult" >
+    SELECT <include refid="colums" />
+    FROM message
+    <where>
+        <if test="command !=null and !&quot;&quot;.equals(command.trim())" > 
+           and command = #{command}
+          </if>
+        <if test="desc !=null and !&quot;&quot;.equals(desc.trim())" > 
+           and desc like '%' #{desc} '%'
+          </if>
+    </where>
+  </select>
+  
+  
+  <!-- 根据主键删除操作 -->
+  <update id="updateOne" parameterType="com.mybatis.bean.Message" >
+    update message 
+    <set>
+        <if test="content !=null and !&quot;&quot;.equals(content.trim())" > 
+        content = #{content}
+        </if>
+    </set>
+    <where>
+        id=#{id}
+    </where>
+     limit 1
+  </update>
+  
+  <!-- 新增数据 -->
+  <insert id="insertOne" parameterType="com.mybatis.bean.Message">
+    insert into message(
+        <include refid="colums" />
+    ) values(#{command}, #{desc}, #{content})
+  </insert>
+  
+  <!-- 批量新增 -->
+  <insert id="insertBatch" parameterType="java.util.List">
+        insert into message(
+        <include refid="colums" />
+    ) values
+    <foreach collection="list" item="item" separator=",">
+        (#{item.command}, #{item.desc}, #{item.content})
+    </foreach>
+    
+  </insert>
+  
+    <!--根据主键删除 -->
+    <delete  id="deleteOne" parameterType="int">
+        delete from message 
+        <where>
+            id = #{_paramter}
+        </where>
+        limit 1
+    </delete>
+   
+   <!--  批量删除 -->
+   <delete id="deleteBatch"  parameterType="java.util.List">
+    delete from message where id in ( 
+        <foreach collection="list" item="item"  separator=","><!-- separator属性代表sql语句中in 中的连接符 -->
+            #{item}
+        </foreach>
+     )
+   </delete>
+   
+   <!-- 新增功能 -->
+</mapper>

@@ -1,0 +1,8 @@
+#开启调试
+debug: false
+
+#自定义属性
+lxf-customer:
+  username: liangxifeng-production
+
+

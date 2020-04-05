@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="default" namespace="/myRoute" extends="struts-default">
+        <!-- 默认action -->
+        <default-action-ref name="index"></default-action-ref>
+        
+        <action name="index">
+            <result>/index.jsp</result>
+        </action>
+
+        <action name="helloworld" class="com.lxf.action.HelloWorldAction">
+            <result>/result.jsp</result>
+        </action>
+        
+         <action name="add" class="com.lxf.action.HelloWorldAction" method="add">
+            <result>/result.jsp</result>
+        </action>
+        
+        <!-- 使用感叹号方式配置多个method -->
+        <action name="helloworld2" class="com.lxf.action.HelloWorldAction">
+            <result>/result.jsp</result>
+            <result name="update">/index.jsp</result>
+        </action>
+        
+        <!-- 通配符方式配置多个method -->
+       <action name="helloworld_*" class="com.lxf.action.HelloWorldAction" method="{1}">
+            <result>/result.jsp</result>
+            <result name="add">/index.jsp</result>
+            <result name="update">/result.jsp</result>
+        </action>
+          
+        <action name="login1" class="com.lxf.action.UserAction" method="login">  
+            <result name="success">  
+                /index.jsp  
+            </result>  
+        </action>  
+        
+        <action name="login" class="com.lxf.action.LoginAction" method="login">  
+            <result name="input">/index.jsp</result>
+            <result > /success.jsp</result>  
+        </action>  
+    </package>
+</struts>   

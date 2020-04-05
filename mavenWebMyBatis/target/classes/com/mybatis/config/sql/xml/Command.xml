@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+       Copyright 2009-2016 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Command">
+
+  <resultMap type="com.mybatis.bean.Command" id="CommandResult">
+    <!-- 注意：column 属性代表select 语句查询的别名，而不是真实的数据表列名 -->
+    <id column="c_id" jdbcType="INTEGER" property="id"/>
+    <result column="name" jdbcType="VARCHAR" property="name"/>
+    <result column="desc" jdbcType="VARCHAR" property="desc"/>
+    <collection property="contentList" resultMap="CommandContent.contentResult" />
+  </resultMap>
+
+  <!--根据条件查询 -->
+  <select id="queryCommandList" parameterType="com.mybatis.bean.Command" resultMap="CommandResult" >
+    SELECT  <include refid="colums" />
+    FROM command a  left join command_content b on a.id = b.command_id
+    <where>
+        1=1
+	    <if test="name !=null and !&quot;&quot;.equals(name.trim())" > 
+	       and name = #{name}
+	      </if>
+	    <if test="desc !=null and !&quot;&quot;.equals(desc.trim())" > 
+	       and desc like '%' #{desc} '%'
+	      </if>
+    </where>
+  </select>
+  <sql id="colums">a.id c_id, a.name,a.desc,b.id,b.content,b.command_id</sql>
+</mapper>

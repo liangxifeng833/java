@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="domain.dao.impl.AreaHistoryDao">
+    <resultMap id="BaseResultMap" type="domain.domain.AreaHistory">
+        <id column="id" property="id"/>
+        <result column="operation_time" property="operationTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    </resultMap>
+
+    <!-- 定义字段 -->
+    <sql id="Base_Column_List">
+        id,area_name
+    </sql>
+    <!-- 定义表名 -->
+    <sql id="tableName">area_history</sql>
+    <!-- 定义主键 -->
+    <sql id="keyId">id</sql>
+    <sql id="objKeyId">id</sql>
+
+
+    <!-- 新增 -->
+    <insert id="insert" parameterType="domain.domain.AreaHistory" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into <include refid="tableName" />
+        (`valid_start`,`valid_cutoff`,`field`,`value`,`area_id`)
+        values (#{validStart,jdbcType=TIMESTAMP},#{validCutoff,jdbcType=TIMESTAMP},#{field},#{value},#{areaId})
+    </insert>
+
+    <!--修改-->
+    <update id="update" parameterType="domain.domain.AreaHistory" >
+        UPDATE
+        <include refid="tableName" />
+        <set>
+            <if test="validStart != null">valid_start = #{validStart},</if>
+            <if test="validCutoff != null">valid_cutoff = #{validCutoff},</if>
+            <if test="field != null and !&quot;&quot;.equals(field.trim())">field = #{field},</if>
+            <if test="value != null and !&quot;&quot;.equals(value.trim())">`value` = #{value},</if>
+            <if test="areaId != null and areaId != 0 ">area_id = #{areaId}</if>
+        </set>
+        WHERE
+        <include refid="keyId" /> = #{<include refid="objKeyId" />}
+    </update>
+
+    <!--根据主键删除-->
+    <delete id="delete" parameterType="java.lang.Long" >
+        DELETE FROM
+        <include refid="tableName" />
+        WHERE
+        <include refid="keyId" /> =#{_parameter} LIMIT 1
+    </delete>
+
+    <!--根据关联区域id删除-->
+    <delete id="deleteByAreaId" parameterType="java.lang.Long" >
+        DELETE FROM
+        <include refid="tableName" />
+        WHERE
+        area_id = #{_parameter}
+    </delete>
+
+    <!--查询单条记录-->
+    <select id="getOne" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT
+        <include refid="Base_Column_List" />
+        from <include refid="tableName" />
+        where <include refid="keyId" /> = #{_parameter}
+    </select>
+
+    <!--查询多条-->
+    <select id="getList" resultMap="BaseResultMap" >
+        select
+        <!--判断是否有field字段-->
+        <choose>
+            <when test="field != null">
+                ${field}
+            </when>
+            <otherwise>
+                *
+            </otherwise>
+        </choose>
+        from <include refid="tableName" />
+        <where>
+            <!--判断是否是equals-->
+            <if test="equals!=null">
+                and
+                <!--open 表示起始符,separator 表示连接符,close 表示闭合符-->
+                <foreach item="item" index="index" collection="equals" open="" separator="and" close="">
+                    ${index} = #{item}
+                </foreach>
+            </if>
+            <!--判断是否是noEquals-->
+            <if test="noEquals!=null">
+                and
+                <!--open 表示起始符,separator 表示连接符,close 表示闭合符-->
+                <foreach item="itemNo" index="indexNo" collection="noEquals" open="" separator="and" close="">
+                    ${indexNo} <![CDATA[<>]]> #{itemNo}
+                </foreach>
+            </if>
+            <!--判断是否是whereIn-->
+            <if test="whereIn!=null">
+                and <include refid="keyId" /> in
+                <foreach item="item" index="index" collection="whereIn" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <!--判断是否有符号查询-->
+            <if test="symbol!=null">
+                and
+                <!--open 表示起始符,separator 表示连接符,close 表示闭合符-->
+                <foreach item="item" index="index" collection="symbol" open="" separator="and" close="">
+                    ${item.key} <![CDATA[${item.compare}]]> #{item.value}
+                </foreach>
+            </if>
+        </where>
+        <choose>
+            <when test="order !=null">
+                order by <include refid="keyId" /> ${order}
+            </when>
+            <otherwise>
+                order by <include refid="keyId" /> desc
+            </otherwise>
+        </choose>
+        <if test="limiting!=null  " >
+            <choose>
+                <when test="offset!=null">
+                    limit ${offset},${limiting}
+                </when>
+                <otherwise>
+                    limit ${limiting}
+                </otherwise>
+            </choose>
+        </if>
+    </select>
+    <!--查询总条数-->
+    <select id="getCount" resultType="java.lang.Integer" >
+        select
+        count(1)
+        from <include refid="tableName" />
+        <where>
+            <!--判断是否是equals-->
+            <if test="equals!=null">
+                and
+                <!--open 表示起始符,separator 表示连接符,close 表示闭合符-->
+                <foreach item="item" index="index" collection="equals" open="" separator="and" close="">
+                    ${index} = #{item}
+                </foreach>
+            </if>
+            <!--判断是否是noEquals-->
+            <if test="noEquals!=null">
+                and
+                <!--open 表示起始符,separator 表示连接符,close 表示闭合符-->
+                <foreach item="itemNo" index="indexNo" collection="noEquals" open="" separator="and" close="">
+                    ${indexNo} <![CDATA[<>]]> #{itemNo}
+                </foreach>
+            </if>
+            <!--判断是否是whereIn-->
+            <if test="whereIn!=null">
+                and <include refid="keyId" /> in
+                <foreach item="item" index="index" collection="whereIn" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <!--判断是否有符号查询-->
+            <if test="symbol!=null">
+                and
+                <!--open 表示起始符,separator 表示连接符,close 表示闭合符-->
+                <foreach item="item" index="index" collection="symbol" open="" separator="and" close="">
+                    ${item.key} <![CDATA[${item.compare}]]> #{item.value}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>

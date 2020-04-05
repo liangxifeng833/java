@@ -1,0 +1,33 @@
+#jpa config
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/xunwu??useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+    username: common
+    password: common
+
+#thymeleaf模板配置
+  thymeleaf:
+    cache: false
+
+#图片上传配置
+  http:
+    multipart:
+      enabled: true
+      location: /home/lxf/git/user_liangxifeng833/my_program/java/es-project/tmp
+      max-file-size: 5MB
+      max-request-size: 20MB
+
+elasticsearch:
+  cluster:
+    name: lxf
+  host: 127.0.0.1
+  port: 9300
+#打印log级别
+logging:
+  level:
+    com:
+      soufang:
+        esproject:
+          service:
+            search: debug

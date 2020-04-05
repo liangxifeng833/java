@@ -1,0 +1,21 @@
+##开启调试
+debug: true
+
+## 数据源配置
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_exhibition?useUnicode=true&characterEncoding=utf8
+    username: common
+    password: common
+
+##内置tomcat配置
+#server:
+#  port: 8083
+
+##自定义常量
+myYml:
+  moduleApiHost: http://192.168.9.224:8080/frame_module/apiInfo/url
+  totalNumber: 10
+
+
+

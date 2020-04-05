@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    #内存模式
+    url: jdbc:h2:mem:test
+    schema: classpath:db/schema.sql
+    data: classpath:db/data.sql
+    initialization-mode: always
+
+#thymeleaf模板配置
+  thymeleaf:
+    cache: false
+
+elasticsearch:
+  cluster:
+    name: lxf
+  host: 127.0.0.1
+  port: 9300

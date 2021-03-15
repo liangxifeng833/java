@@ -15,3 +15,4 @@
 * spring-boot spring-boot框架的学习
 * es-project - ElasticSearch实战代码
 * concurrency - 慕课高并发练习
+* spring_jta_druid - spring+jta+druid+automikos分布式事务demo

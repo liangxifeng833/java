@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="gd-centering-wms" />
+        <module name="gd-centering-sequence" />
+        <module name="gd-centering-feign-core" />
+        <module name="gd-centering-department" />
+        <module name="domain_park_api" />
+        <module name="impl-member" />
+        <module name="gd-centering-feign-wms" />
+        <module name="gd-centering-feign-basics-data" />
+        <module name="gd-centering-allot" />
+        <module name="gd-centering-core" />
+        <module name="gd-centering-redis" />
+        <module name="impl-order" />
+        <module name="gd-centering-file" />
+        <module name="gd-centering-common-config" />
+        <module name="gd-centering-feign-user" />
+        <module name="gd-centering-goods" />
+        <module name="gd-centering-purchase" />
+        <module name="gd-centering-feign-inventory" />
+        <module name="gd-centering-commattr" />
+        <module name="gd-centering-flowable" />
+        <module name="gd-centering-basics-data" />
+        <module name="gd-centering-sms" />
+        <module name="gateway-server" />
+        <module name="gd-centering-idempotent" />
+        <module name="gd-centering-gateway" />
+        <module name="gd-centering-demo" />
+        <module name="gd-centering-user" />
+        <module name="gd-centering-enhance-sdk" />
+        <module name="gd-centering-mq" />
+        <module name="gd-centering-dict" />
+        <module name="gd-centering-email" />
+        <module name="api-member" />
+        <module name="gd-centering-third-dingding" />
+        <module name="gd-centering-feign-goods" />
+        <module name="gd-centering-inventory" />
+      </profile>
+      <profile name="Annotation profile for lj-centering-parent" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.3.1.Final/mapstruct-processor-1.3.1.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/jolira/hickory/1.0.0/hickory-1.0.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.3.1.Final/mapstruct-1.3.1.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/assertj/assertj-core/3.11.1/assertj-core-3.11.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/google/guava/guava/19.0/guava-19.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/puppycrawl/tools/checkstyle/8.14/checkstyle-8.14.jar" />
+          <entry name="$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-container-default/1.6/plexus-container-default-1.6.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-test/4.0.3.RELEASE/spring-test-4.0.3.RELEASE.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.0.3.RELEASE/spring-beans-4.0.3.RELEASE.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-context/4.0.3.RELEASE/spring-context-4.0.3.RELEASE.jar" />
+          <entry name="$MAVEN_REPOSITORY$/joda-time/joda-time/2.9/joda-time-2.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
+        </processorPath>
+        <module name="lj-centering-coupons (2)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-common" target="1.8" />
+      <module name="api-member-service" target="1.8" />
+      <module name="api-member-service-impl" target="1.8" />
+      <module name="api-order-service" target="1.8" />
+      <module name="api-order-service-impl" target="1.8" />
+      <module name="api-service" target="1.8" />
+      <module name="lj-centering-core" target="1.8" />
+      <module name="lj-centering-core (2)" target="1.8" />
+      <module name="lj-centering-coupons" target="1.8" />
+      <module name="lj-centering-feign-api" target="1.8" />
+      <module name="lj-centering-feign-core" target="1.8" />
+      <module name="lj-centering-feign-discount" target="1.8" />
+      <module name="lj-centering-parent" target="1.8" />
+      <module name="lj-centering-redis" target="1.8" />
+      <module name="parent" target="1.8" />
+      <module name="service-gateway" target="1.8" />
+      <module name="service-gateway (2)" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-member" options="-parameters" />
+      <module name="gateway-server" options="-parameters" />
+      <module name="gd-centering-allot" options="-parameters" />
+      <module name="gd-centering-basics-data" options="-parameters" />
+      <module name="gd-centering-commattr" options="-parameters" />
+      <module name="gd-centering-common-config" options="-parameters" />
+      <module name="gd-centering-core" options="-parameters" />
+      <module name="gd-centering-demo" options="-parameters" />
+      <module name="gd-centering-department" options="-parameters" />
+      <module name="gd-centering-dict" options="-parameters" />
+      <module name="gd-centering-email" options="-parameters" />
+      <module name="gd-centering-enhance-sdk" options="-parameters" />
+      <module name="gd-centering-feign-basics-data" options="-parameters" />
+      <module name="gd-centering-feign-core" options="-parameters" />
+      <module name="gd-centering-feign-goods" options="-parameters" />
+      <module name="gd-centering-feign-inventory" options="-parameters" />
+      <module name="gd-centering-feign-user" options="-parameters" />
+      <module name="gd-centering-feign-wms" options="-parameters" />
+      <module name="gd-centering-file" options="-parameters" />
+      <module name="gd-centering-flowable" options="-parameters" />
+      <module name="gd-centering-gateway" options="-parameters" />
+      <module name="gd-centering-goods" options="-parameters" />
+      <module name="gd-centering-idempotent" options="-parameters" />
+      <module name="gd-centering-inventory" options="-parameters" />
+      <module name="gd-centering-mq" options="-parameters" />
+      <module name="gd-centering-purchase" options="-parameters" />
+      <module name="gd-centering-redis" options="-parameters" />
+      <module name="gd-centering-sequence" options="-parameters" />
+      <module name="gd-centering-sms" options="-parameters" />
+      <module name="gd-centering-third-dingding" options="-parameters" />
+      <module name="gd-centering-user" options="-parameters" />
+      <module name="gd-centering-wms" options="-parameters" />
+      <module name="impl-member" options="-parameters" />
+      <module name="impl-order" options="-parameters" />
+      <module name="lj-centering-core" options="-parameters" />
+      <module name="lj-centering-core (2)" options="-parameters" />
+      <module name="lj-centering-coupons" options="-parameters" />
+      <module name="lj-centering-coupons (2)" options="-parameters" />
+      <module name="lj-centering-feign-core" options="-parameters" />
+      <module name="lj-centering-feign-discount" options="-parameters" />
+      <module name="lj-centering-redis" options="-parameters" />
+      <module name="service-gateway" options="-parameters" />
+      <module name="service-gateway (2)" options="-parameters" />
+    </option>
+  </component>
+</project>

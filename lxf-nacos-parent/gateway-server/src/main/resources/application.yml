@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: service-gateway
+
+  cloud:
+   # nacos:
+   #   discovery:
+   #     server-addr: 127.0.0.1:8848 #服务注册地址
+    gateway:
+      discovery:
+        locator:
+          enabled: true #使用服务发现路由
+      routes:
+        - id: member-service
+          #uri: http://127.0.0.1:8091/
+          uri: lb://member-service/
+          predicates:
+            ## 当请求的路径为gate、rule开头的时，转发到http://localhost:9023服务器上
+            - Path=/GetTest/**
+
+server:
+  port: 9000
+

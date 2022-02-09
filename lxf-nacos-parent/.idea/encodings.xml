@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-allot" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-basics-data" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-cmw" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-cmw/gd-centering-commattr" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-cmw/gd-centering-demo" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-cmw/gd-centering-email" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-cmw/gd-centering-file" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-cmw/gd-centering-flowable" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-cmw/gd-centering-idempotent" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-cmw/gd-centering-mq" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-cmw/gd-centering-redis" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-cmw/gd-centering-sequence" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-cmw/gd-centering-sms" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-common-config" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-core" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-department" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-dict" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-enhance-sdk" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-feign-api" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-feign-api/gd-centering-feign-basics-data" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-feign-api/gd-centering-feign-core" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-feign-api/gd-centering-feign-goods" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-feign-api/gd-centering-feign-inventory" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-feign-api/gd-centering-feign-user" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-feign-api/gd-centering-feign-wms" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-gateway" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-goods" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-inventory" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-purchase" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-third-party-docking" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-third-party-docking/gd-centering-third-dingding" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-user" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/微服务/gd-centering-business/gd-centering-wms" charset="UTF-8" />
+    <file url="file://$USER_HOME$/docker/docker-config/project/domain/domain_park_api" charset="UTF-8" />
+    <file url="file://$USER_HOME$/docker/docker-config/project/lj-centering-parent.bak" charset="UTF-8" />
+    <file url="file://$USER_HOME$/docker/docker-config/project/lj-centering-parent.bak/lj-centering-core" charset="UTF-8" />
+    <file url="file://$USER_HOME$/docker/docker-config/project/lj-centering-parent.bak/lj-centering-coupons" charset="UTF-8" />
+    <file url="file://$USER_HOME$/docker/docker-config/project/service/lj-centering-parent" charset="UTF-8" />
+    <file url="file://$USER_HOME$/docker/docker-config/project/service/lj-centering-parent/lj-centering-core" charset="UTF-8" />
+    <file url="file://$USER_HOME$/docker/docker-config/project/service/lj-centering-parent/lj-centering-coupons" charset="UTF-8" />
+    <file url="file://$USER_HOME$/docker/docker-config/project/service/lj-centering-parent/lj-centering-feign-api" charset="UTF-8" />
+    <file url="file://$USER_HOME$/docker/docker-config/project/service/lj-centering-parent/lj-centering-feign-api/lj-centering-feign-core" charset="UTF-8" />
+    <file url="file://$USER_HOME$/docker/docker-config/project/service/lj-centering-parent/lj-centering-feign-api/lj-centering-feign-discount" charset="UTF-8" />
+    <file url="file://$USER_HOME$/docker/docker-config/project/service/lj-centering-parent/lj-centering-redis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-api/api-member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-impl/impl-member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-impl/impl-order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springcloud/parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springcloud/parent/api-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springcloud/parent/api-member-service-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springcloud/parent/api-order-service-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springcloud/parent/api-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springcloud/parent/api-service/api-member-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springcloud/parent/api-service/api-order-service" charset="UTF-8" />
+  </component>
+</project>

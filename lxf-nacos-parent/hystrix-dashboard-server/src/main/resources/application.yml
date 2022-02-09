@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: hystrix-dashboard-server
+
+  cloud:
+   # nacos:
+   #   discovery:
+   #     server-addr: 127.0.0.1:8848 #服务注册地址
+
+server:
+  port: 9001
+#监控配置　
+management:
+  endpoint:
+    web:
+      exposure:
+        include: hystrix.stream #hystrix的流文件

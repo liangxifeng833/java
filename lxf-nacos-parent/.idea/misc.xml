@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$USER_HOME$/docker/docker-config/project/domain/domain_park_api" />
+    <file type="web" url="file://$PROJECT_DIR$/../springcloud/parent/api-member-service-impl" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$USER_HOME$/docker/docker-config/project/lj-centering-parent.bak/pom.xml" />
+        <option value="$USER_HOME$/docker/docker-config/project/service/lj-centering-parent/pom.xml" />
+        <option value="$USER_HOME$/docker/docker-config/project/domain/domain_park_api/pom.xml" />
+        <option value="$PROJECT_DIR$/../springcloud/lxf-nacos-parent/service-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/../springcloud/parent/pom.xml" />
+        <option value="$USER_HOME$/Downloads/微服务/gd-centering-business/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$USER_HOME$/docker/docker-config/project/lj-centering-parent.bak/lj-centering-core/pom.xml" />
+        <option value="$USER_HOME$/docker/docker-config/project/lj-centering-parent.bak/lj-centering-coupons/pom.xml" />
+        <option value="$USER_HOME$/docker/docker-config/project/lj-centering-parent.bak/pom.xml" />
+        <option value="$USER_HOME$/docker/docker-config/project/service/lj-centering-parent/lj-centering-core/pom.xml" />
+        <option value="$USER_HOME$/docker/docker-config/project/service/lj-centering-parent/lj-centering-feign-api/lj-centering-feign-core/pom.xml" />
+        <option value="$USER_HOME$/docker/docker-config/project/service/lj-centering-parent/lj-centering-feign-api/lj-centering-feign-discount/pom.xml" />
+        <option value="$USER_HOME$/docker/docker-config/project/service/lj-centering-parent/lj-centering-feign-api/pom.xml" />
+        <option value="$USER_HOME$/docker/docker-config/project/service/lj-centering-parent/lj-centering-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/service-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/../springcloud/parent/api-common/pom.xml" />
+        <option value="$PROJECT_DIR$/../springcloud/parent/api-member-service-impl/pom.xml" />
+        <option value="$PROJECT_DIR$/../springcloud/parent/api-order-service-impl/pom.xml" />
+        <option value="$PROJECT_DIR$/../springcloud/parent/api-service/api-member-service/pom.xml" />
+        <option value="$PROJECT_DIR$/../springcloud/parent/api-service/api-order-service/pom.xml" />
+        <option value="$PROJECT_DIR$/../springcloud/parent/api-service/pom.xml" />
+        <option value="$PROJECT_DIR$/../springcloud/parent/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8-local" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

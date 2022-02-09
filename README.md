@@ -16,3 +16,5 @@
 * es-project - ElasticSearch实战代码
 * concurrency - 慕课高并发练习
 * spring_jta_druid - spring+jta+druid+automikos分布式事务demo
+* lxf-nacos-parent - 阿里巴巴注册中信nacos demo
+* rockermq-demo - rocker mq  demo

@@ -1,4 +1,4 @@
-package com.lxf.rocketdemo.base.producer;
+package com.lxf.rocketdemo.delay;
 
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.SendResult;
@@ -8,9 +8,9 @@ import org.apache.rocketmq.common.message.Message;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 发送同步消息
+ * 延迟消费消息-生产者
  */
-public class SyncProducer {
+public class Producer {
     public static void main(String[] args) throws Exception {
         //1.创建消息生产者producer,并制定生产者组名
         DefaultMQProducer producer = new DefaultMQProducer("group-new");
@@ -28,7 +28,10 @@ public class SyncProducer {
              * 参数二：tag=Tag1
              * 参数三: 消息体
              */
-            Message msg = new Message("base","Tag1",("Hello world"+i).getBytes());
+            Message msg = new Message("Delay-msg","Tag1",("Hello world"+i).getBytes());
+            //设置延迟等级3,该消息将在10s之后发送（现在只支持固定的几个时间，想看delayTimeLevel）
+            //这里的延迟，指的是消费者端延迟消费，发送者没有延迟
+            msg.setDelayTimeLevel(3);
             //5.同步方式发送消息
             SendResult result = producer.send(msg);
             SendStatus status = result.getSendStatus(); //发送状态

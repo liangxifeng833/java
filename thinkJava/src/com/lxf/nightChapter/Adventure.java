@@ -1,4 +1,4 @@
-package src.com.lxf.a;
+package src.com.lxf.nightChapter;
 
 /**
  * 单继承多实现demo

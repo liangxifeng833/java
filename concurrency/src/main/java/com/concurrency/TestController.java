@@ -15,7 +15,16 @@ class TestController {
 
     @RequestMapping("/test")
     @ResponseBody
-    public String test() {
-      return "test";
+    public synchronized String test() throws InterruptedException {
+        System.out.println("随机数="+System.currentTimeMillis());
+        Thread.sleep(6000000);
+        return "test";
     }
+    @RequestMapping("/test2")
+    @ResponseBody
+    public synchronized String test2() throws InterruptedException {
+        System.out.println("随机数="+System.currentTimeMillis());
+        return "test2";
+    }
+
 }

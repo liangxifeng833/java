@@ -1,0 +1,2 @@
+{"id":"127.0.1.1.tm161605935190200001","wasCommitted":true,"participants":[{"uri":"127.0.1.1.tm1","state":"COMMITTING","expires":1616059365206,"resourceName":"db_user"},{"uri":"127.0.1.1.tm2","state":"COMMITTING","expires":1616059365206,"resourceName":"db_account"}]}
+{"id":"127.0.1.1.tm161605935190200001","wasCommitted":true,"participants":[{"uri":"127.0.1.1.tm1","state":"TERMINATED","expires":1616059365703,"resourceName":"db_user"},{"uri":"127.0.1.1.tm2","state":"TERMINATED","expires":1616059365703,"resourceName":"db_account"}]}

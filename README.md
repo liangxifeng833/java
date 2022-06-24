@@ -18,3 +18,4 @@
 * spring_jta_druid - spring+jta+druid+automikos分布式事务demo
 * lxf-nacos-parent - 阿里巴巴注册中信nacos demo
 * rockermq-demo - rocker mq  demo
+* es-demo - 使用原始java api client 以及 ElasticsearchRestTemplate 以及 Respoitory 三种方式操作ES的demo, 测试代码都存在在单元测试test目录下

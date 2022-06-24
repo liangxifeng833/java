@@ -1,4 +1,5 @@
 ### 说明：
-* es-demo 项目是spring boot2.3.2-release 版本操作 elasticsearch-7.17.3的方式
-* 项目中没有使用 spring data 方式操作，只使用了 Elasticsearch Java API Client 方式操作es
-* 注意： es 服务的版本也是7.17.3
+* 项目中 test/ESTest.java 单元测试 ，官方推荐的 java api client方式操作 es 注意该方式只支持ES server 版本=7.17.3
+* test/EsRestTemplate.java单元测试， ElasticsearchRestTemplate方式操作es,该方式支持ES server 版本 7.17.3 和 7.6.2 (**推荐使用该方式**)
+* test/repositorys/TestEsRepository.java单元测试， repository方式操作es,该方式支持ES server 版本 7.17.3 和 7.6.2
+* 项目是spring boot2.3.2-release

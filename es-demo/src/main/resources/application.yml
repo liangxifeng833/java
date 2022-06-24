@@ -1,0 +1,12 @@
+spring:
+  application:
+    ###服务别名
+    name: es-demo-tmp
+
+  elasticsearch:
+    rest:
+      uris: http://192.168.9.225:9200
+
+##内置tomcat配置
+server:
+  port: 9210

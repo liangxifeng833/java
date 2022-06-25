@@ -70,7 +70,9 @@ public class ESTest extends ApplicationTests{
     @Test
     public void testAddDoc() throws IOException {
         // 向user对象中添加数据
-        User user = new User("java客户端", "男", 18);
+        User user = new User();
+        user.setId(1);
+        user.setName("haha");
         // 向索引中添加数据
         CreateResponse createResponse = elasticSearchClientConfig.restClient().getElasticsearchClient().create(e -> e.index("test-lxf").id("1001").document(user));
         System.out.println("createResponse.result() = " + createResponse.result());

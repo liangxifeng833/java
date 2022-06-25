@@ -6,13 +6,20 @@ import org.elasticsearch.index.query.*;
 import org.elasticsearch.search.sort.FieldSortBuilder;
 import org.elasticsearch.search.sort.SortOrder;
 import org.junit.Test;
+import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.data.elasticsearch.core.SearchHits;
+import org.springframework.data.elasticsearch.core.document.Document;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.data.elasticsearch.core.query.*;
+import org.apache.commons.io.IOUtils;
 
+import javax.activation.DataHandler;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -69,7 +76,15 @@ public class EsRestTemplate extends ApplicationTests{
     @Test
     public void testAddDoc(){
         //保存第一种方式
-        Product product = new Product(500000,"烂苹果-1","型号1" ,160D,1,1,1,"规格12*12",15,512,1);
+        Product product = new Product();
+        product.setProductId(1).setProductName("测试商品名称1").setProductPrice(1000D).setProductModel("商品型号1").setProductProunit(1)
+                .setOldId(1).setProductAddtime(LocalDateTime.now())
+                .setProductBrandid(1)
+                .setProductMerchantid(512)
+                .setProductSpecification("规格")
+                .setProductStatus(1)
+                .setProductTypeid(1);
+        System.out.println(product);
         Product product1 = elasticsearchRestTemplate.save(product);
         System.out.println(product1);
         /*保存 第二种方式
@@ -85,9 +100,32 @@ public class EsRestTemplate extends ApplicationTests{
     @Test
     public void testBatchAdd() {
         List list = new ArrayList();
-        Product product = new Product(500000,"烂苹果-1","型号1" ,160D,1,1,1,"规格12*12",15,512,1);
+        Product product = new Product();
+        product.setProductId(1).setProductName("测试商品名称,爬高").setProductPrice(1000D).setProductModel("商品型号1").setProductProunit(1)
+                .setOldId(1).setProductAddtime(LocalDateTime.now())
+                .setProductBrandid(1)
+                .setProductMerchantid(512)
+                .setProductSpecification("规格")
+                .setProductStatus(1)
+                .setProductTypeid(1);
         list.add(product);
-        Product product2 = new Product(500001,"烂苹果-2","型号2" ,170D,1,1,1,"规格12*12",15,512,1);
+        Product product2 = new Product();
+        product.setProductId(2).setProductName("测试商品名称2").setProductPrice(2000D).setProductModel("商品型号,爬高").setProductProunit(1)
+                .setOldId(1).setProductAddtime(LocalDateTime.now())
+                .setProductBrandid(1)
+                .setProductMerchantid(512)
+                .setProductSpecification("规格")
+                .setProductStatus(1)
+                .setProductTypeid(1);
+        list.add(product2);
+        Product product3 = new Product();
+        product.setProductId(3).setProductName("上山爬高，真淘气").setProductPrice(3000D).setProductModel("商品型号,爬高").setProductProunit(1)
+                .setOldId(1).setProductAddtime(LocalDateTime.now())
+                .setProductBrandid(1)
+                .setProductMerchantid(512)
+                .setProductSpecification("规格")
+                .setProductStatus(1)
+                .setProductTypeid(1);
         list.add(product2);
         elasticsearchRestTemplate.save(list);
     }
@@ -121,11 +159,31 @@ public class EsRestTemplate extends ApplicationTests{
 
     @Test
     public void testAddUser() {
+        //elasticsearchRestTemplate.indexOps(User.class).create();
         User user = new User();
-        user.setName("nihao");
-        user.setAge(22);
-        user.setSex("男");
+        user.setId(2);
+        user.setName("中国的中国");
+        user.setCreateTime(LocalDateTime.now());
         User user1 = elasticsearchRestTemplate.save(user);
         System.out.println(user1);
+    }
+
+    @Test
+    public void testgetById() {
+        Integer id = 1;
+        Product res = elasticsearchRestTemplate.queryForObject(GetQuery.getById(String.valueOf(id)), Product.class);
+        System.out.println(res);
+    }
+
+    @Test
+    public void testUpdateById() {
+        Document document = Document.create();
+        // 将id为1023539082200的name列的值更为update by wfd
+        document.put("product_name", "update by wfd");
+        UpdateResponse response = elasticsearchRestTemplate.update(
+                UpdateQuery.builder("1")
+                        .withDocument(document).build(), IndexCoordinates.of("ljyun_share_product")
+        );
+        System.out.println(response);
     }
 }

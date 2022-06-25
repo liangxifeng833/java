@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -24,7 +25,14 @@ public class TestEsRepository extends ApplicationTests {
      */
     @Test
     public void testAddIndex() {
-        Product product = new Product(500000,"烂苹果-1","型号1" ,160D,1,1,1,"规格12*12",15,512,1);
+        Product product = new Product();
+        product.setProductId(1).setProductName("测试商品名称1").setProductPrice(1000D).setProductModel("商品型号1").setProductProunit(1)
+                .setOldId(1).setProductAddtime(LocalDateTime.now())
+                .setProductBrandid(1)
+                .setProductMerchantid(512)
+                .setProductSpecification("规格")
+                .setProductStatus(1)
+                .setProductTypeid(1);
         Product res = productRepository.save(product);
         System.out.println(res);
     }

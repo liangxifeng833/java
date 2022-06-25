@@ -5,7 +5,7 @@ spring:
 
   elasticsearch:
     rest:
-      uris: http://192.168.9.225:9200
+      uris: http://127.0.0.1:9200
 
 ##内置tomcat配置
 server:

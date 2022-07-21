@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.OfferMapper">
+    <sql id="tableName">
+        offer
+    </sql>
+
+    <sql id="baseColumn">
+        offer_id,offer_proid,offer_storeid,offer_ljmartid,offer_merchantid,offer_ljmartproid,offer_price,offer_addtime,offer_verify,offer_ljyunstyle_id,offer_pricetag_id,offer_refuse_remark,offer_change_time,offer_type,offer_is_fotn,status,old_id
+    </sql>
+
+</mapper>

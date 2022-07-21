@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.AppCenterMapper">
+    <sql id="tableName">
+        app_center
+    </sql>
+
+    <sql id="baseColumn">
+        app_id,cat_id,app_name,app_type,app_desc,app_icon,app_ctime,app_file,app_isValid,app_sort
+    </sql>
+
+</mapper>
